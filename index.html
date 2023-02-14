@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .calculator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(0,  0  , 0,0.3);
+            height: 60vh;
+            width: 45vh;
+            margin-top: 17vh;
+            border-radius: 8px;
+            margin-left: auto;
+            margin-right: auto;
+            flex-direction: column;
+
+        }
+
+        .screen {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            height: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 24px;
+            text-align: right;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            background-color: #ccc;
+            border: none;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <div class="screen">
+            <input type="text" class="input-group-text" id="input-num" readonly>
+        </div>
+        <div class="buttons">
+            <button type="button" class="btn btn-warning" onclick="appendvalu('*')">*</button>
+            <button type="button" class="btn btn-warning" onclick="appendvalu('/')">/</button>
+            <button type="button" class="btn btn-warning" onclick="appendvalu('+')">+</button>
+            <button type="button" class="btn btn-warning" onclick="appendvalu('-')">-</button>
+            <button type="button" class="btn btn-secondary" onclick="appendvalu('9')">9</button>
+            <button type="button" class="btn btn-secondary" onclick="appendvalu('8')">8</button>
+            <button type="button" class="btn btn-secondary" onclick="appendvalu('7')">7</button>
+            <button type="button" class="btn btn-secondary" onclick="appendvalu('6')">6</button>
+            <button type="button" class="btn btn-secondary" onclick="appendvalu('5')">5</button>
+            <button type="button" class="btn btn-secondary" onclick="appendvalu('4')">4</button>
+            <button type="button" class="btn btn-secondary" onclick="appendvalu('3')">3</button>
+            <button type="button" class="btn btn-secondary" onclick="appendvalu('2')">2</button>
+            <button type="button" class="btn btn-secondary" onclick="appendvalu('1')">1</button>
+            <button type="button" class="btn btn-secondary" onclick="appendvalu('0')">0</button>
+            <button type="button" class="btn btn-success" onclick="ans()">=</button>
+            <button type="button" class="btn btn-danger" id="clear" >C</button>
+          
+        </div>
+    </div>
+    
+    <script>
+        const Sreen = document.getElementById('input-num');
+        const rem = document.getElementById('clear');
+        
+        rem.addEventListener('click',()=>{
+            Sreen.value = '';
+           
+        });
+      
+        function appendvalu(val) {
+            Sreen.value += val;
+          
+        }
+        function ans() {
+            
+            
+            Sreen.value = eval(Sreen.value);
+        }
+      
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
